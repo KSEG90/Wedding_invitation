@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Wedding Countdown</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background: #fff9f9;
+      color: #5a3e36;
+    }
+    .invite-img {
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .countdown {
+      font-size: 24px;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>You're Invited!</h1>
+  <img class="invite-img" src="Wedding invitation.png" alt="Wedding invitation">
+  <div class="countdown" id="countdown"></div>
+
+  <script>
+    // SET YOUR WEDDING DATE HERE (YYYY-MM-DD)
+    const weddingDate = new Date("2025-08-28").getTime(); // ⚠️ CHANGE THIS DATE!
+    
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      
+      document.getElementById("countdown").innerHTML = 
+        `Only <strong>${days}</strong> days left until our wedding! 💖`;
+    }
+    
+    updateCountdown(); // Run once immediately
+    setInterval(updateCountdown, 86400000); // Update every 24 hours
+  </script>
+</body>
+</html>
